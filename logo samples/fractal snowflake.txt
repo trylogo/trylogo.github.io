@@ -1,0 +1,7 @@
+to draw :len
+  if :len < 7 [fd :len stop]
+  localmake "third :len / 3
+  draw :third rt 60 draw :third lt 120 draw :third rt 60 draw :third 
+end
+
+cs ct moveTo -200 -100 repeat 6 [draw 200 rt 60]

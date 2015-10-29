@@ -1,0 +1,6 @@
+to makePc :color make "hpc pc setpc :color end
+to retnPc setpc :hpc end
+to makePs :size make "hps pensize setpensize :size end
+to retnPs setpensize :hps end
+to moveTo :x :y pu setxy :x :y pd end
+to ranDec :f :t output :f + (random 1000 * (:t - :f)) / 1000) end

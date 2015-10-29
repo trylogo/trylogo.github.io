@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Try Logo</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="alternate" type="application/atom+xml" href="http://code.google.com/feeds/p/jslogo/gitchanges/basic">
+
+<!--[if lt IE 9]><script type="text/javascript" src="../polyfill/polyfill.js?update=2013-02-04"></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="../polyfill/flashcanvas.js"></script><![endif]-->
+<script type="text/javascript" src="logo.js?update=2013-02-04"></script> <!-- Logo interpreter -->
+<script type="text/javascript" src="turtle.js?update=2013-02-04"></script> <!-- Canvas turtle -->
+<script type="text/javascript" src="index.js?update=2013-02-04"></script>
+<link rel="stylesheet" href="logo.css">
+
+</head>
+<body>
+
+
+<div id="title">
+  <h3>Try Logo</h3>
+</div>
+
+<div style="float: left">
+  <div id="display" style="float: left">
+      <canvas id="sandbox" width="760" height="480">
+          <span>Your browser does not support the canvas element - sorry!</span>
+      </canvas>
+      <canvas id="turtle" width="760" height="480"></canvas>
+      <div id="overlay"></div>
+  </div>
+
+  <div id="input" style="float: right">
+      <textarea rows="20" cols="80" id="entry_multi"></textarea>
+      <div style="float: right"><input class="run" id="run" type="button" value="Run" title="Run the specified statements" /></div>
+  </div>
+</div>
+<br/><br/>
+<div class="command-reference">
+<h3>Command Reference</h3>
+<table BORDER CELLSPACING=0>
+    <tr>
+      <td><b>Command</b></td>
+      <td><b>Inputs</b></td>
+      <td><b>Description</b></td>
+      <td><b>Example</b></td>
+    </tr>
+    <tr>
+      <td>
+        FD<br>
+        (FORWARD)
+      </td>
+      <td ALIGN="center">
+        number
+      </td>
+      <td>
+        Moves the turtle forward, in the direction
+        it is facing, by the specified number of
+        turtle steps.
+      </td>
+      <td>
+        FD&nbsp;100
+      </td>
+    </tr>
+    <tr>
+      <td>
+        BK<br>
+        (BACK)
+      </td>
+      <td ALIGN="center">
+        number
+      </td>
+      <td>
+        Moves the turtle backward, i.e., exactly
+        opposite to the direction that it's facing,
+        by the specified number of turtle steps.
+      </td>
+      <td>
+        BACK&nbsp;150
+      </td>
+    </tr>
+    <tr>
+      <td>
+        LT<br>
+        (LEFT)
+      </td>
+      <td ALIGN="center">
+        number
+      </td>
+      <td>
+        Turns the turtle counterclockwise by the
+        specified angle measured by a number of
+        degrees (1/360 of a circle).
+      </td>
+      <td>
+        LEFT&nbsp;180
+      </td>
+    </tr>
+    <tr>
+      <td>
+        RT<br>
+        (RIGHT)
+      </td>
+      <td ALIGN="center">
+        number
+      </td>
+      <td>
+        Turns the turtle clockwise by the
+        specified angle, measured in degrees
+        (1/360 of a circle).
+      </td>
+      <td>
+        RT&nbsp;90
+      </td>
+    </tr>
+    <tr>
+      <td>
+        HOME
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td>
+        Moves the turtle to the center of the
+        graphics area, i.e., coordinates 0,0.
+      </td>
+      <td>
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td>
+        PU<br>
+        (PENUP)
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td>
+        Lifts the turtle's pen up so that it
+        leaves no trace when it moves.
+      </td>
+      <td>
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td>
+        PD<br>
+        (PENDOWN)
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td>
+        Puts the turtle's pen down so that it
+        leaves a trace when it moves.
+      </td>
+      <td>
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td>
+        CS<br>
+        (CLEAN)
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td>
+        Erases everything that the turtle
+        has drawn on the graphics area (ClearScreen).
+        The turtle's state (position, heading, pen
+        color, etc.) is not changed.
+      </td>
+      <td>
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td>
+        SETCOLOR
+      </td>
+      <td ALIGN="center">
+        number
+      </td>
+      <td>
+        Sets the turtle's color - the color of
+        its pen.  Color is expressed as a number.
+        <p>
+        <center>
+        <table BORDER CELLSPACING=0 >
+          <tr>
+            <td>
+              <center>Number</center>
+            </td>
+            <td>
+              <center>Color</center>
+            </td>
+            <td>
+              <center>Number</center>
+            </td>
+            <td>
+              <center>Color</center>
+            </td>
+            <td>
+              <center>Number</center>
+            </td>
+            <td>
+              <center>Color</center>
+            </td>
+            <td>
+              <center>Number</center>
+            </td>
+            <td>
+              <center>Color</center>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <center>0</center>
+            </td>
+            <td>
+              <center>black</center>
+            </td>
+            <td>
+              <center>4</center>
+            </td>
+            <td>
+              <center>red</center>
+            </td>
+            <td>
+              <center>8</center>
+            </td>
+            <td>
+              <center>brown</center>
+            </td>
+            <td>
+              <center>12</center>
+            </td>
+            <td>
+              <center>salmon</center>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <center>1</center>
+            </td>
+            <td>
+              <center>blue</center>
+            </td>
+            <td>
+              <center>5</center>
+            </td>
+            <td>
+              <center>magenta</center>
+            </td>
+            <td>
+              <center>9</center>
+            </td>
+            <td>
+              <center>tan</center>
+            </td>
+            <td>
+              <center>13</center>
+            </td>
+            <td>
+              <center>violet</center>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <center>2</center>
+            </td>
+            <td>
+              <center>green</center>
+            </td>
+            <td>
+              <center>6</center>
+            </td>
+            <td>
+              <center>yellow</center>
+            </td>
+            <td>
+              <center>10</center>
+            </td>
+            <td>
+              <center>forest</center>
+            </td>
+            <td>
+              <center>14</center>
+            </td>
+            <td>
+              <center>orange</center>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <center>3</center>
+            </td>
+            <td>
+              <center>cyan</center>
+            </td>
+            <td>
+              <center>7</center>
+            </td>
+            <td>
+              <center>white</center>
+            </td>
+            <td>
+              <center>11</center>
+            </td>
+            <td>
+              <center>aqua</center>
+            </td>
+            <td>
+              <center>15</center>
+            </td>
+            <td>
+              <center>grey</center>
+            </td>
+          </tr>
+        </table>
+        </center>
+      </td>
+      <td>
+        SETC&nbsp;10
+      </td>
+    </tr>
+    <tr>
+      <td>
+        HT<br>
+        (HIDETURTLE)
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td>
+        Hides the turtle, makes it invisible.
+      </td>
+      <td>
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ST<br>
+        (SHOWTURTLE)
+      </td>
+      <td>
+        &nbsp;
+      </td>
+      <td>
+        Makes the turtle visible.
+      </td>
+      <td>
+        &nbsp;
+      </td>
+</table>
+</div>
+<br/>
+<div class="examples">
+    <h3>Examples</h3>
+<ol>
+<pre><code><li>to star repeat 5 [ fd 100 rt 144 ] end
+star
+</li></code></pre>
+<pre><code><li>to square :length repeat 4 [ fd :length rt 90 ] end
+repeat 36 [ square 50 rt 10 ]
+</li></code></pre>
+<pre><code><li>to square :length repeat 4 [ fd :length rt 90 ] end
+to randomcolor setcolor pick [ red orange yellow green blue violet ] end
+repeat 36 [ randomcolor square random 200 rt 10 ]
+</li></code></pre>
+<pre><code><li>repeat 40 [fd 100 bk 95 rt 2] rt 180
+</li></code></pre>
+<pre><code><li>repeat 12 [repeat random 50 [fd 100 bk 95 rt 2] rt 180]
+</li></code></pre>
+<pre><code><li>window pu repeat 72 [ setlabelheight repcount fd repcount * 2.5 label &quot;Logo bk repcount * 2.5 rt 10 ]
+</li></code></pre>
+</ol>
+   
+</div>
+</body>
+</html>
+
+

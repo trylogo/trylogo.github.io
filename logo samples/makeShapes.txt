@@ -1,0 +1,33 @@
+to shape :sides :angle
+  repeat :sides [fd 100 rt :angle]
+end
+
+to triangle
+  shape 3 120
+end
+
+to square
+  shape 4 90
+end
+
+to pentagon
+  shape 5 72
+end
+
+to hexagon
+  shape 6 60
+end
+
+to octagon
+  shape 8 45
+end
+
+clearscreen
+moveTo -350 0
+triangle
+moveTo -200 0
+square
+moveTo -50 0
+pentagon
+moveTo 150 0
+hexagon

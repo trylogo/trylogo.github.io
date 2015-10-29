@@ -1,0 +1,5 @@
+to makeGround :high
+  moveTo 0 (-240 + :high / 2) makePc 14 makePs :high seth 90 fd 760
+  moveTo -380 :high - 240 repeat 760 [setpensize random 20 fd 1]
+  retnPc retnPs
+end

@@ -1,0 +1,5 @@
+to makeWaves :size :ht
+  moveTo -380 :ht window makePc 1 makePs 1
+  seth 45 while xcor < 380 [repeat 360 [fd :size rt repcount + .5]]
+  wrap retnPc retnPs
+end

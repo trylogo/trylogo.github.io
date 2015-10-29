@@ -1,0 +1,23 @@
+to star :points :angle
+  repeat :points [fd 50 rt 150 fd 50 lt :angle]
+end
+
+to fivepointstar
+  star 5 78
+end
+
+to sixpointstar
+  star 6 90
+end
+
+to sevenpointstar
+  star 7 99
+end
+
+clearscreen
+moveTo -200 100 
+fivepointstar
+moveTo 0 100 
+sixpointstar
+moveTo 200 100 
+sevenpointstar

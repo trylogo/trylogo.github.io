@@ -1,0 +1,14 @@
+to makeTree :size
+  if :size < 7 [fd :size back :size stop]
+  fd :size/3 lt 30 makeTree :size * ranDec .5 .7 rt 30
+  fd :size/6 rt 40 makeTree :size * ranDec .4 .6 lt 40 
+  fd :size/3 rt 35 makeTree :size * ranDec .3 .5 lt 35
+  fd :size/6 tree :size * ranDec .2 .3
+  back :size
+end
+
+to randomTree :size :bottomrange
+  seth 0 makePc 10 
+  moveTo (random 760) - 380 -240 + (random :bottomrange)
+  makeTree random :size
+end

@@ -1,0 +1,7 @@
+to makeMoon :size
+  makePc 9 seth -72 makePs 0
+  localmake "incdec :size / 4
+  repeat 15 [setpensize (first pensize) + :incdec fd :size rt 5 ]
+  repeat 15 [setpensize (first pensize) - :incdec fd :size rt 5 ]
+  retnPc retnPs
+end

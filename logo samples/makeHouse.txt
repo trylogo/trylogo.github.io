@@ -1,0 +1,21 @@
+to square :size repeat 4 [fd :size rt 90] end
+to floor :size repeat 2 [fd :size rt 90 fd :size * 2 rt 90] end
+to roof :size rt 120 fd :size rt 120 fd :size end
+to moveTo :x :y pu setxy :x :y pd end
+
+to house
+  ; two stacked rectangles
+  floor 60 fd 60 floor 60 
+  ; left window
+  pu fd 20 rt 90 fd 20 lt 90 pd
+  square 20
+  ; right window
+  pu rt 90 fd 60 lt 90 pd
+  square 20
+  ; put on the roof
+  pu fd 40 lt 90 fd 80 pd
+  roof 120
+  ht
+end
+
+house
